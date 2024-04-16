@@ -1,4 +1,5 @@
 const express = require('express');
+
 const app = express();
 
 app.get('/', (req, res) => {
@@ -6,6 +7,7 @@ app.get('/', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3939;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+const HOST = '0.0.0.0'; 
+app.listen(PORT, HOST, () => {
+  console.log(`Server is running on ${HOST}:${PORT}`);
 });
