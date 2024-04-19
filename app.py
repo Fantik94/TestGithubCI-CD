@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import os
 
 app = Flask(__name__)
 
@@ -13,5 +14,7 @@ def eval_endpoint():
     result = eval(data['code'])  # Ceci est vulnérable à une injection de code
     return jsonify(result="ok", output=result)
 
+app.debug = os.getenv('FLASK_DEBUG', 'False') == 'True'
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

@@ -1,4 +1,4 @@
-name: Semgrep
+name: Semgrep Scan
 
 on: [push, pull_request]
 
@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flask
+        pip install flask  # Si votre application dépend de Flask
 
     - name: Install Semgrep
       run: pip install semgrep
